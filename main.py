@@ -30,23 +30,18 @@ scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
-model = IsolationForest(contamination=0.07, random_state=42)
-
-model.fit(X_train_scaled)
-y_pred = model.predict(X_test_scaled)
-y_pred = y_pred * -1
-
-print(confusion_matrix(y_test, y_pred))
-print(classification_report(y_test, y_pred))
-
 pca = PCA(n_components=30, random_state=42)
 X_train_pca = pca.fit_transform(X_train_scaled)
 X_test_pca = pca.transform(X_test_scaled)
 
-model_1 = IsolationForest(contamination=0.07, random_state=42)
-model_1.fit(X_train_pca)
-y_pred = model_1.predict(X_test_pca)
+model = IsolationForest(contamination=0.07, random_state=42)
+model.fit(X_train_pca)
+y_pred = model.predict(X_test_pca)
 y_pred = y_pred * -1
 print(confusion_matrix(y_test, y_pred))
 print(classification_report(y_test, y_pred))
+joblib.dump(scaler, 'scaler.joblib')
+joblib.dump(pca, 'pca.joblib')
+joblib.dump(model, 'model.joblib')
 
+X_test.iloc[[0]].to_csv('new_chip.csv', index=False)
