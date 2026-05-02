@@ -13,4 +13,4 @@
 6) **Deployment Simulation:** Saved the scaler, PCA, and model via `joblib`. Created a `deploy.py` script that loads these files to simulate real-time inference on a single new chip.
 
 **How to run** 
-First execute main.py to train the model, then execute the deploy.py to get the result of out new_chip.csv
+First execute main.py to train the model, then execute the deploy.py to get the result of our new_chip.csv
