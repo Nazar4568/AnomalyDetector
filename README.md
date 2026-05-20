@@ -1,6 +1,6 @@
 # Name: Semiconductor Anomaly Detection (SECOM)
 
-**Description** : Project for searching defective chips using 590 sensors 
+**Description** : Project for searching defective chips using 590 sensors using dataset from [Kaggle](https://www.kaggle.com/datasets/paresh2047/uci-semcom).
 
 **Tech Stack**: Python , Pandas, Scikit-learn, Joblib
 
